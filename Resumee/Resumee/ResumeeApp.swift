@@ -1,14 +1,14 @@
 //
-//  myresumeeApp.swift
-//  myresumee
+//  ResumeeApp.swift
+//  Resumee
 //
-//  Created by viri on 1/21/26.
+//  Created by viri on 1/22/26.
 //
 
 import SwiftUI
 
 @main
-struct myresumeeApp: App {
+struct ResumeeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
