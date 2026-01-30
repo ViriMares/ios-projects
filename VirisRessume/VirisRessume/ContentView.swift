@@ -14,25 +14,43 @@ struct ContentView: View {
     var education = ("M.E in Electrical Engineering", 2018, true)
     @State private var mostrarAlerta = false
     @State private var isEnabled = false
-    @State private var valor: Double = 50
+    @State private var valor: Double = 50000
     
     var body: some View {
+        HStack {
+            Image("face")
+            Text("\(name)")
+                .font(.largeTitle)
+                .frame(maxWidth: .infinity)
+        }
+        
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Nombre: \(name)")
+            
+            Text("Informacion personal")
+                .font(.title)
+            Spacer()
+            
             Text("Edad: \(age)")
+            Text("Adress: Av. Italia 123")
+            Text("Telefono: 3124567890")
+            Spacer()
+            Text("Experiencia profesional")
+                .font(.title)
+            Spacer()
             
             ForEach(Array(workExperience.enumerated()), id: \.offset) { index, company in
                 HStack {
                     Text("Experiencia \(index + 1):")
                     Text(company)
                 }
-                
             }
+            Spacer()
             
-            Text("Education: \(education.0) - \(String(education.1))")
+            Text("Education")
+                .font(.title)
+            
+            Text("\(education.0) - \(String(education.1))")
+            Spacer()
             
             Button("Cursos") {
                 mostrarAlerta = true
@@ -42,20 +60,21 @@ struct ContentView: View {
             } message: {
                 Text("Curso 1: Big Data\nCurso 2: Computer Vision\nCurso 3: Data Science.")
             }
-            
-            
+            Spacer()
             
             Toggle(isOn: $isEnabled) {
                 Text("Perfil")
+
             }
             .padding()
                         
             Text(isEnabled ? "Developer" : "Scrum master")
                             .foregroundColor(isEnabled ? .green : .red)
                             .font(.headline)
+            Spacer()
             
-            Text(": \(Int(valor))")
-                        Slider(value: $valor, in: 0...100, step: 1)
+            Text("Desired salary: \(Int(valor))")
+                        Slider(value: $valor, in: 0...100000, step: 10000)
                             .padding()
 
 
